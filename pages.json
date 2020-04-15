@@ -2,14 +2,64 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
+			"style":{
+				"navigationStyle":"custom"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/status/status",
+            "style" : {
+				"navigationBarTitleText":"动态"
+			}
+        }
+        ,{
+            "path" : "pages/paper/paper",
+            "style" : {
+				"navigationBarTitleText":"小纸条"
+			}
+        }
+        ,{
+            "path" : "pages/me/me",
+            "style" : {
+				"navigationBarTitleText":"我"
+			}
+        }
+    ],
+	"tabBar":{
+		"color":"#ADADAD",
+		"selectedColor":"#FEE42A",
+		"backgroundColor":"#FFFFFF",
+		"borderStyle":"black",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"糗事",
+				"iconPath":"static/image/tabbar/uindex.png",
+				"selectedIconPath":"static/image/tabbar/sindex.png"
+			},
+			{
+				"pagePath":"pages/status/status",
+				"text":"动态",
+				"iconPath":"static/image/tabbar/ustatus.png",
+				"selectedIconPath":"static/image/tabbar/sstatus.png"
+			},
+			{
+				"pagePath":"pages/paper/paper",
+				"text":"小纸条",
+				"iconPath":"static/image/tabbar/upaper.png",
+				"selectedIconPath":"static/image/tabbar/spaper.png"
+			},
+			{
+				"pagePath":"pages/me/me",
+				"text":"我的",
+				"iconPath":"static/image/tabbar/ume.png",
+				"selectedIconPath":"static/image/tabbar/sme.png"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "糗事百科",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	}
