@@ -1,18 +1,21 @@
 <template>
 	<view class="index">
 		<view class="nav">
+			<tabbar />
+		</view>
 			<block v-for="(item,index) in arr" :key="index">
 			     <indexComp :item="item" :index="index" />
 			</block>
-		</view>
 	</view>
 </template>
 
 <script>
 	import indexComp from '../../components/index-comp.vue';
+	import tabbar from '../../components/tabbar.vue';
 	export default {
 		components:{
-			indexComp
+			indexComp,
+			tabbar
 		},
 		data() {
 			return {

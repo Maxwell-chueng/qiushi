@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "index-comp": "/components/index-comp"
+    "index-comp": "/components/index-comp",
+    "tabbar": "/components/tabbar"
   }
 }

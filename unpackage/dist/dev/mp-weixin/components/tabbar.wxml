@@ -1,0 +1,1 @@
+<view class="tabbar data-v-429d97ec"><scroll-view class="list data-v-429d97ec" scroll-x="true"><block wx:for="{{arr}}" wx:for-item="list" wx:for-index="index" wx:key="id"><block class="data-v-429d97ec"><view class="item data-v-429d97ec">{{list.name}}</view></block></block></scroll-view></view>
