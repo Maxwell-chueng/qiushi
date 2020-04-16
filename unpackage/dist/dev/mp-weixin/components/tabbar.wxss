@@ -24,11 +24,12 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.tabbar.data-v-429d97ec {
+.tabbar.data-v-92c303a6 {
   width: 100%;
+  height: 80rpx;
 }
-.tabbar .list.data-v-429d97ec {
-    width: 100%;
+.tabbar .list.data-v-92c303a6 {
+    height: 80rpx;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -42,11 +43,25 @@
     -webkit-box-align: center;
     -webkit-align-items: center;
             align-items: center;
-    -webkit-flex-wrap: nowrap;
-            flex-wrap: nowrap;
 }
-.tabbar .list .item.data-v-429d97ec {
-      display: inline;
-      width: 100rpx;
+.tabbar .list .scroll.data-v-92c303a6 {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+}
+.tabbar .list .scroll .item.data-v-92c303a6 {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+                flex: 1;
+        display: inline-block;
+        height: 100%;
+        margin: 0 41rpx;
+        color: #969696;
+        font-weight: bold;
+}
+.active.data-v-92c303a6 {
+  border-bottom: 6rpx solid #FEE42A;
+  border-radius: 4rpx;
+  color: #000 !important;
 }
 
