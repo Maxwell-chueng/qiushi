@@ -1,0 +1,16 @@
+@mixin flex_row ($row : center,$column : center) {
+	display: flex;
+	flex-direction: row;
+	justify-content: $row;
+	align-items: $column;
+}
+@mixin flex_column ($row : center,$column : center) {
+	display: flex;
+	flex-direction: column;
+	justify-content: $row;
+	align-items: $column;
+}
+@mixin box_size($top:'20upx',$left:'20upx'){
+	box-sizing: border-box;
+	padding: $top $left;
+}

@@ -1,1 +1,1 @@
-<view class="content animated bounceIn">{{''+title+''}}</view>
+<view class="index data-v-149b0ec6"><view class="nav data-v-149b0ec6"><block wx:for="{{arr}}" wx:for-item="item" wx:for-index="index" wx:key="index"><block class="data-v-149b0ec6"><index-comp vue-id="{{'8dd740cc-1-'+index}}" item="{{item}}" index="{{index}}" class="data-v-149b0ec6" bind:__l="__l"></index-comp></block></block></view></view>

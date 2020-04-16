@@ -8528,7 +8528,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "navigationStyle": "custom", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/status/status": { "navigationBarTitleText": "动态", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/paper/paper": { "navigationBarTitleText": "小纸条", "usingComponents": {}, "usingAutoImportComponents": {} }, "pages/me/me": { "navigationBarTitleText": "我", "usingComponents": {}, "usingAutoImportComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "糗事百科", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": {}, "pages/status/status": { "navigationBarTitleText": "动态" }, "pages/paper/paper": { "navigationBarTitleText": "小纸条" }, "pages/me/me": { "navigationBarTitleText": "我" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "糗事百科", "navigationBarBackgroundColor": "#FFFFFF", "backgroundColor": "#FFFFFF" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
