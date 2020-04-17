@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/status/status",
     "pages/paper/paper",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {

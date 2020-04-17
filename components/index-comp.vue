@@ -1,42 +1,42 @@
 <template>
 		<view class="list">
-			<view class="item">
+			<view class="item animated fadeInRight fast">
 				<view class="head container"> 
                     <view class="avatar">
-                    	<image :src="item.photo"/> 
-                    	<text class="name">{{item.name}}</text> 
+                    	<image :src="newList.photo"/> 
+                    	<text class="name">{{newList.name}}</text> 
                     </view>
 					<view class="foucs">
-						<view v-show="item.guanzhu == 0" class="contents" >
+						<view v-show="newList.guanzhu == 0" class="contents" @click="joinFoucs">
 							<view class="iconfont btn fl" >
 								&#xe684; 关注
 							</view>							
 						</view>
-						<text class="iconfont close fr">&#xe6aa;</text>
+						<text class="iconfont close fr" @click="deleteArtist">&#xe6aa;</text>
 					</view>
 				</view>
 				<view class="content container">
 					<view class="title">
-						{{item.title}}
+						{{newList.title}}
 					</view>
-					<image :src="item.contentImage"/>
-					<text class="iconfont start" v-if="item.type === 'video'">&#xe6ac;</text>
-					<view class="video-info" v-if="item.type === 'video'">
-					    <text>{{item.videoInfo.play}}</text>
+					<image :src="newList.contentImage"/>
+					<text class="iconfont start" v-if="newList.type === 'video'">&#xe6ac;</text>
+					<view class="video-info" v-if="newList.type === 'video'">
+					    <text>{{newList.videoInfo.play}}</text>
 						<text>次播放</text>
-						<text>{{item.videoInfo.time}}</text>
+						<text>{{newList.videoInfo.time}}</text>
 					</view>
 				</view>
 				<view class="footer container">
                     <view class="fl">
-                    	<view @click="top" :class="[item.info.status == 1?'active':'']"> 
+                    	<view @click="operation('top')" :class="[newList.info.status == 1?'active':'']"> 
                     		<text class="iconfont">&#xe64e;</text>
-                    		<text>{{item.info.top}}</text>
+                    		<text>{{newList.info.top}}</text>
                     	</view>
-                    	<view @click="down" :class="[item.info.status == 2? 'active':'']">
+                    	<view @click="operation('down')" :class="[newList.info.status == 2? 'active':'']">
                     		<text class="iconfont">&#xe600;</text>
-                    		<text>{{item.info.down}}</text>
-                    	</view>
+                    		<text>{{newList.info.down}}</text>
+                    	</view> 
                     </view>
 					<view class="fr">
 						<view>
@@ -50,11 +50,16 @@
 					</view>
 				</view>
 			</view>
+			<showModal ref="notice" />
 		</view>
 </template>
 
 <script>
+	import showModal from "@/components/showModal.vue";
 	export default {
+		components:{
+			showModal
+		},
 		props:{
 			item:{
 				type:Object,
@@ -70,19 +75,45 @@
 		},
 		data() {
 			return {
-				 
+				newList:{} 
 			};
 		},
+		created(){
+			this.newList = this.item;
+		},
 		methods:{
-			top(){ 
-				this.item.info.status = !this.item.info.status;
-				// let this.item.info.status = status;
-				console.log(this.item.info.status);
+			// 删除文章
+			deleteArtist(){
+				this.$emit('deletSomeOne',this.index);
 			},
-			down(){
-				
+			// 关注                             
+			joinFoucs(){
+				this.newList.guanzhu = 1;
+				this.$refs.notice.showMsg({msg:'关注成功'});
+			},
+			operation(type){
+					switch(type){
+						case 'top' :
+						// console.log(11);
+	                        if(this.newList.info.status === 1){return};
+							this.newList.info.top ++ ;
+							if(this.newList.info.status === 2){
+								this.newList.info.down -- ;
+							}
+							this.newList.info.status = 1;
+							break;
+						case 'down' :
+						// console.log(22);
+	                        if(this.newList.info.status === 2){return};
+							this.newList.info.down ++ ;
+							if(this.newList.info.status === 1){
+								this.newList.info.top -- ;
+							}
+							this.newList.info.status = 2;
+							break;
+					}		
+				}
 			}
-		}
 	}
 </script>
 

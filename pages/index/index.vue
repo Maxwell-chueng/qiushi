@@ -12,23 +12,31 @@
 			<swiper @change="changeSwiper" :style="{height:canUseHeight+'px'}" :current="currentIndex">
 				<swiper-item v-for="(item,index) in arr" :key="index">
 					<scroll-view scroll-y="true" :style="{height:canUseHeight+'px'}">
-						<block v-for="(list,i) in item.list" :key="i">
-							 <indexComp :item="list" :index="i" />
-						</block>									
+						<view class="" v-if="item.list.length>0">
+							<block v-for="(list,i) in item.list" :key="i">
+								<indexComp :item="list" :index="i" @deletSomeOne="deleteArtist" />
+							</block>														
+						</view>
+						<view class="" v-else>
+							<image class="defaultImg" src="../../static/image/nothing.png" mode="widthFix"></image>
+						</view>
 					</scroll-view>
 				</swiper-item>
 			</swiper>
 		</view>
+		<showModal ref="notice" /> 
 	</view>
 </template>
 
 <script>
 	import indexComp from '../../components/index-comp.vue';
 	import tabbar from '../../components/tabbar.vue';
+	import showModal from "@/components/showModal.vue";
 	export default {
 		components:{
 			indexComp,
-			tabbar
+			tabbar,
+			showModal
 		},
 		data() {
 			return {
@@ -63,39 +71,7 @@
 				// status为0时,表示没有操作,1为顶,2为踩
 				arr:[{
 					list:[
-						{
-							name:"哲学家",
-							photo:'../../static/image/demo6.jpg',
-							guanzhu:0,
-							title:'如何用手账改变你的一生',
-							type:'image',
-							contentImage:"../../static/image/datapic/37.jpg",
-							info:{
-								status:1,
-								top:12,
-								down:0
-							},
-							comment:999,
-							share:777
-						},{
-							name:"哲学家",
-							photo:'../../static/image/demo6.jpg',
-							guanzhu:1,
-							title:'如何用手账改变你的一生',
-							contentImage:"../../static/image/datapic/37.jpg",
-							type:'video',
-							info:{
-								status:2, 
-								top:10,
-								down:2
-							},
-							videoInfo:{
-								time:'2:47',
-								play:304
-							},
-							comment:999,
-							share:777
-						}
+
 					]
 				},{
 					list:[
@@ -289,20 +265,30 @@
 			}
 		},
 		onLoad() {
-            this.getIndexCompHeight(); 
+            this.getIndexCompHeight();
+		},
+		onNavigationBarSearchInputClicked(){
+			uni.navigateTo({
+				url:'/pages/search/search'
+			})
 		},
 		watch:{
 			// 监听currentIndex,索引大于3式,动态设置tabbar横向滚动条的滚动距离
 			currentIndex(i){
 				if(i>3){
 					this.distance = i *100;
-					consoe.log()
 				}else{
 					this.distance = 0;
 				}
 			}
 		},
 		methods: {
+			deleteArtist(e){
+				let {index} = e;
+				this.$refs.notice.showMsg({msg:'删除成功',time:1000}).then(()=>{
+				    this.arr[this.currentIndex].list.splice(index,1);
+				}) 
+			},
             Handletab(e){
 				this.currentIndex =  e.i;
 			},
@@ -323,5 +309,12 @@
 </script>
 
 <style scoped lang="scss">
-
+    .defaultImg{
+		width: 400upx;
+		height: 600upx;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%); 
+	}
 </style>

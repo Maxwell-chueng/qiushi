@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "index-comp": "/components/index-comp",
-    "tabbar": "/components/tabbar"
+    "tabbar": "/components/tabbar",
+    "show-modal": "/components/showModal"
   }
 }
