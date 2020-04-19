@@ -267,6 +267,13 @@
 		onLoad() {
             this.getIndexCompHeight();
 		},
+		onNavigationBarButtonTap(e){
+			if(e.index === 1){
+				uni.navigateTo({
+					url:'/pages/fabu/fabu'
+				})
+			}
+		},
 		onNavigationBarSearchInputClicked(){
 			uni.navigateTo({
 				url:'/pages/search/search'

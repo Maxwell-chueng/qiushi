@@ -77,6 +77,16 @@
 				}
 			}
         }
+        ,{
+            "path" : "pages/fabu/fabu",
+            "style" : {
+				"navigationStyle":"custom",
+				"app-plus":{
+					"titleNView": false,
+					"bounce":"none" 
+				}
+			}
+        }
     ],
 	"tabBar":{
 		"color":"#ADADAD",

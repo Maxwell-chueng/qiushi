@@ -24,19 +24,19 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.success.data-v-077b2fb4 {
+.success.data-v-a3bce29e {
   width: 40rpx;
   height: 40rpx;
   color: #1afa29;
   line-height: 40rpx;
 }
-.fail.data-v-077b2fb4 {
+.fail.data-v-a3bce29e {
   width: 40rpx;
   height: 40rpx;
   color: #d81e06;
   line-height: 40rpx;
 }
-.content.data-v-077b2fb4 {
+.content.data-v-a3bce29e {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
