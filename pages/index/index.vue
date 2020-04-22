@@ -11,7 +11,7 @@
 	<!-- @change当轮播图的页数被滑动时能够获取当前的页数，在change 的回调函数中修改currentIndex使得，上面tababr 的index也发生了变化 -->
 			<swiper @change="changeSwiper" :style="{height:canUseHeight+'px'}" :current="currentIndex">
 				<swiper-item v-for="(item,index) in arr" :key="index">
-					<scroll-view scroll-y="true" :style="{height:canUseHeight+'px'}">
+					<scroll-view scroll-y="true" :style="{height:canUseHeight+'px'}" scroll-with-animation="true">
 						<view class="" v-if="item.list.length>0">
 							<block v-for="(list,i) in item.list" :key="i">
 								<indexComp :item="list" :index="i" @deletSomeOne="deleteArtist" />
@@ -31,7 +31,7 @@
 <script>
 	import indexComp from '../../components/index-comp.vue';
 	import tabbar from '../../components/tabbar.vue';
-	import showModal from "@/components/showModal.vue";
+	import showModal from "@/components/showModal/showModal.vue";
 	export default {
 		components:{
 			indexComp,

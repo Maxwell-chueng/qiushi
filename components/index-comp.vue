@@ -55,7 +55,7 @@
 </template>
 
 <script>
-	import showModal from "@/components/showModal.vue";
+	import showModal from "@/components/showModal/showModal.vue";
 	export default {
 		components:{
 			showModal

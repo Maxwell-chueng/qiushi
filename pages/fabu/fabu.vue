@@ -14,8 +14,7 @@
 			<textarea  placeholder="说一句话吧~" />
 			<view class="handle-photo">
 				<view class="head">
-					<text>点击可预览选好的图片</text>
-					<text class="select"> 0/9</text>
+					<upload-image style="width: 100%;" @getSelectImage="selectImage" />
 				</view>
 			</view>
 		</view>
@@ -23,18 +22,26 @@
 </template> 
 
 <script>
-	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue'
+	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
+	import uploadImage from '@/components/upload-image.vue';
 	export default {
 		components:{
-			uniNavBar,	
+			uniNavBar,
+			uploadImage
 		},
 		data() { 
 			return {
 				status:'所有人可见',
-				style:'font-size:18px;font-weight: bolder;'
+				style:'font-size:18px;font-weight: bolder;',
+				title: 'choose/previewImage',
+				imageList: []
 			};
 		},
 		methods:{
+			selectImage(argus){
+				let {e} = argus;
+				this.imageList = e;
+			},
 			switchPrivate(){
 				let itemList = ['所有人可见', '仅自己可见'];
 				// uni-app自带的交互多选框
@@ -74,7 +81,9 @@
 			color: #808080;
 		}
 		.handle-photo{
+			width: 100%;
 			.head{
+				width: 100%;
 				@include flex_row(space-between);
 				.select{
 					color: #808080;

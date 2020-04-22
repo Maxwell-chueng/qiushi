@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "show-modal": "/components/showModal"
+    "show-modal": "/components/showModal/showModal"
   }
 }

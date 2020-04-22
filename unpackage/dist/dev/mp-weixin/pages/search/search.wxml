@@ -1,1 +1,1 @@
-<view><show-modal class="vue-ref" vue-id="1" data-ref="notice" bind:__l="__l"></show-modal></view>
+<view><show-modal class="vue-ref" vue-id="50cad900-1" data-ref="notice" bind:__l="__l"></show-modal></view>
