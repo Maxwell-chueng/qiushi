@@ -40,11 +40,19 @@
 		['compressed', 'original']
 	]
 	import showComfirm from '@/components/showComfirm/showComfirm.vue';
-	import showModal from '@/components/showModal/showModal.vue'
+	import showModal from '@/components/showModal/showModal.vue';
 	export default {
 		components:{
 			showComfirm,
 			showModal
+		},
+		props:{
+			images:{
+				type:Array,
+				default:function(){
+					return []
+				}
+			}
 		},
 		data() {
 			return {
@@ -57,6 +65,9 @@
 				countIndex: 8,
 				count: [1, 2, 3, 4, 5, 6, 7, 8, 9]	
 			};
+		},
+		created(){
+			this.images == ''?'':this.imageList = this.images;
 		},
 		watch:{
 			imageList(e){

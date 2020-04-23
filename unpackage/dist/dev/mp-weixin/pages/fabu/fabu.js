@@ -96,6 +96,9 @@ __webpack_require__.r(__webpack_exports__);
 var components = {
   "uni-nav-bar": function() {
     return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 76))
+  },
+  tishikuang: function() {
+    return __webpack_require__.e(/*! import() | components/tishikuang/tishikuang */ "components/tishikuang/tishikuang").then(__webpack_require__.bind(null, /*! @/components/tishikuang/tishikuang.vue */ 83))
   }
 }
 var render = function() {
@@ -135,7 +138,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 76));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uploadImage = function uploadImage() {Promise.all(/*! require.ensure | components/upload-image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/upload-image")]).then((function () {return resolve(__webpack_require__(/*! @/components/upload-image.vue */ 83));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 76));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uploadImage = function uploadImage() {Promise.all(/*! require.ensure | components/upload-image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/upload-image")]).then((function () {return resolve(__webpack_require__(/*! @/components/upload-image.vue */ 90));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var tishikuang = function tishikuang() {__webpack_require__.e(/*! require.ensure | components/tishikuang/tishikuang */ "components/tishikuang/tishikuang").then((function () {return resolve(__webpack_require__(/*! @/components/tishikuang/tishikuang.vue */ 83));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var comfirm = function comfirm() {__webpack_require__.e(/*! require.ensure | components/showComfirm/showComfirm */ "components/showComfirm/showComfirm").then((function () {return resolve(__webpack_require__(/*! @/components/showComfirm/showComfirm.vue */ 100));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
 
 
 
@@ -164,15 +171,26 @@ __webpack_require__.r(__webpack_exports__);
 {
   components: {
     uniNavBar: uniNavBar,
-    uploadImage: uploadImage },
+    uploadImage: uploadImage,
+    tishikuang: tishikuang,
+    comfirm: comfirm },
 
   data: function data() {
     return {
       status: '所有人可见',
       style: 'font-size:18px;font-weight: bolder;',
       title: 'choose/previewImage',
-      imageList: [] };
+      imageList: [],
+      content: '' };
 
+  },
+  onShow: function onShow() {
+    var draft = uni.getStorageSync('draft');
+    draft.img.length > 0 ? this.imageList = draft.img : this.imageList = [];
+    draft.word == '' ? this.content = '' : this.content = draft.word;
+  },
+  mounted: function mounted() {
+    this.$refs.openAlert.show();
   },
   methods: {
     selectImage: function selectImage(argus) {var
@@ -191,12 +209,26 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     back: function back() {
+      if (this.imageList.length > 0 || this.content != '') {
+        this.$refs.isShow.showComfirm('是否保存为草稿？');
+        this.flag = true;
+      } else {
+        uni.clearStorageSync('draft');
+        uni.navigateBack({
+          delta: 1 });
+
+      }
+    },
+    isComfirm: function isComfirm(e) {
+      if (e.status) {
+        uni.setStorageSync('draft', { img: this.imageList, word: this.content });
+      }
       uni.navigateBack({
         delta: 1 });
 
     },
     fabu: function fabu() {
-      console.log('发布');
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

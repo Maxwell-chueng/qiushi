@@ -2,6 +2,8 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
-    "upload-image": "/components/upload-image"
+    "tishikuang": "/components/tishikuang/tishikuang",
+    "upload-image": "/components/upload-image",
+    "comfirm": "/components/showComfirm/showComfirm"
   }
 }

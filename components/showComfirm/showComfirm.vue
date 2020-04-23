@@ -5,8 +5,8 @@
 				<text class="uni-tip-title">{{title}}</text>
 				<text class="uni-tip-content">{{msg}}</text>
 				<view class="uni-tip-group-button">
-					<text class="uni-tip-button" @click="cancel('tip')">取消</text>
-					<text class="uni-tip-button" @click="comfirm('tip')">确定</text>
+					<text class="uni-tip-button" @click="cancel">取消</text>
+					<text class="uni-tip-button" @click="comfirm">确定</text>
 				</view>
 			</view>
 		</uni-popup>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-	import uniPopup from '@/components/showComfirm/uni-popup.vue';
+	import uniPopup from '@/components/showComfirm/uni-popup.vue'; 
 	export default {
 		components:{
 			uniPopup
@@ -25,35 +25,24 @@
 				msg:'',
 				title:'提示'
 			};
-		},
+		}, 
 		methods:{
-			showComfirm(msg,title,type='center', open='tip') {
+			showComfirm(msg,title) {
 				this.msg = msg? msg:'';
 				this.title = title? title: '提示';
-				switch (type) {
-					case 'top':
-						this.content = '顶部弹出 popup'
-						break
-			
-					case 'bottom':
-						this.content = '底部弹出 popup'
-						break
-					case 'center':
-						this.content = '居中弹出 popup'
-						break
-				}
-				this.type = type
-				this.$nextTick(() => {
-					this.$refs['show' + open].open()
-				})
+				this.$refs.showtip.open();
 			},
-			comfirm(type){
+			comfirm(){
+				// console.log(this.$refs.showtip)
+				this.$refs.showtip.close();
 				this.$emit('comfirmStatus',{status:true});
-				this.$refs['show' + type].close();
+				// console.log(this.$refs.showtip)
+				// return
 			},
-			cancel(type) {
+			cancel() {
+				this.$refs.showtip.close();
 				this.$emit('comfirmStatus',{status:false});
-				this.$refs['show' + type].close();
+				// this.$refs.showtip.close();
 			},
 			change(e) {
 				// console.log('是否打开:' + e.show)
