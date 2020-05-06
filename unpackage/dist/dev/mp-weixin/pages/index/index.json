@@ -1,7 +1,8 @@
 {
   "usingComponents": {
-    "show-modal": "/components/showModal/showModal",
+    "showModal": "/components/showModal/showModal",
     "index-comp": "/components/index-comp",
-    "tabbar": "/components/tabbar"
+    "tabbar": "/components/tabbar",
+    "show-modal": "/components/showModal/showModal"
   }
 }

@@ -1,5 +1,23 @@
 <template>
 	<view class="index">
+		<uni-nav-bar :statusBar="true" class="nav"  @clickRight="handleNavigate('right')" @clickLeft="handleNavigate('left')">
+			<block slot="left">
+				<view class="nav-left">
+				    <text class="iconfont">&#xe609;</text>
+				</view>
+			</block>
+			<view class="nav-center">
+				<input type="text" value="" placeholder="点击搜索" disabled="true" :placeholder-style="'color:#000'" @click="handleNavigate('input')" />
+				<view class="iconfont fangdajing">
+					&#xe606;
+				</view>
+			</view>
+			<block slot="right">
+				<view class="nav-right">
+				    <text  class="iconfont">&#xe653;</text>
+				</view>
+			</block>
+		</uni-nav-bar>
 		<view class="nav">
 			<tabbar :tab="tab" :currentIndex="currentIndex" :distance="distance" @tapTab="Handletab" />
 		</view>
@@ -24,7 +42,7 @@
 				</swiper-item>
 			</swiper>
 		</view>
-		<showModal ref="notice" /> 
+		<showModal ref="notice" />
 	</view>
 </template>
 
@@ -32,11 +50,13 @@
 	import indexComp from '../../components/index-comp.vue';
 	import tabbar from '../../components/tabbar.vue';
 	import showModal from "@/components/showModal/showModal.vue";
+	import uniNavBar from '@/components/uni-nav-bar/uni-nav-bar.vue';
 	export default {
 		components:{
 			indexComp,
 			tabbar,
-			showModal
+			showModal,
+			uniNavBar
 		},
 		data() {
 			return {
@@ -267,18 +287,6 @@
 		onLoad() {
             this.getIndexCompHeight();
 		},
-		onNavigationBarButtonTap(e){
-			if(e.index === 1){
-				uni.navigateTo({
-					url:'/pages/fabu/fabu'
-				})
-			}
-		},
-		onNavigationBarSearchInputClicked(){
-			uni.navigateTo({
-				url:'/pages/search/search'
-			})
-		},
 		watch:{
 			// 监听currentIndex,索引大于3式,动态设置tabbar横向滚动条的滚动距离
 			currentIndex(i){
@@ -290,6 +298,19 @@
 			}
 		},
 		methods: {
+			handleNavigate(type){
+				if(type == 'left'){
+					console.log('签到');
+				}else if(type == 'right'){
+					uni.navigateTo({
+						url:'/pages/fabu/fabu'
+					})
+				}else if(type == 'input'){
+					uni.navigateTo({
+						url:'/pages/search/search'
+					})
+				}
+			},
 			deleteArtist(e){
 				let {index} = e;
 				this.$refs.notice.showMsg({msg:'删除成功',time:1000}).then(()=>{
@@ -316,6 +337,44 @@
 </script>
 
 <style scoped lang="scss">
+	.nav-left,.nav-right{
+		width: 50upx;
+		text{
+			font-size: 40upx;
+			color: #FF9A22;
+		}
+	}
+	.nav-left{
+		width: 0%;
+		margin-left: 16upx;
+	}
+	.nav-right{
+		width: 0%;
+		// margin-right: -22upx;
+		text{
+		    color: #000;	
+		}
+	}
+	.nav-center{
+		position: absolute;
+		width: 74vw;
+		margin-left: -80upx;
+		z-index: 999;
+		input{
+			text-align: center;
+			font-size: 24upx;
+			height: 44upx;
+			background-color: rgba(0,0,0,0.1);
+		    border-radius: 10upx;
+		}
+		.fangdajing{
+			font-size: 22upx;
+			position: absolute;
+			top: 4upx;
+			left: 36%;
+			color: #000;
+		}
+	}
     .defaultImg{
 		width: 400upx;
 		height: 600upx;

@@ -1,1 +1,1 @@
-<view></view>
+<view><uni-nav-bar vue-id="1" statusBar="{{true}}" bind:__l="__l" vue-slots="{{['left','right']}}"><view slot="left">1</view><view slot="right">2</view></uni-nav-bar></view>

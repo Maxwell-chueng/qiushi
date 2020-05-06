@@ -5,38 +5,17 @@
 			"style":{
 				"app-plus":{
 					"scrollIndicator":"none",//隐藏滚动条,
-					"titleNView":{
-						"searchInput":{
-							"align":"center",
-							"backgroundColor":"#F7F7F7",
-							"borderRadius":"4px",
-							"placeholder":"搜索糗事",
-							"placeholderColor":"#cccccc",
-							"disabled":true
-						},
-						"buttons":[{
-							"color":"#FF9619",
-							"colorPressed":"#BBBBBB",
-							"fontSize":"22px",
-							"float":"left",
-							"fontSrc":"/static/style/iconfont.ttf",
-							"text":"\ue609"
-						},{
-							"color":"#000000",
-							"colorPressed":"#BBBBBB",
-							"fontSize":"22px",
-							"float":"right",
-							"fontSrc":"/static/style/iconfont.ttf",
-							"text":"\ue653"
-						}]
-					}
+					"titleNView": false
 				}
 			}
 		}
 	    ,{
             "path" : "pages/status/status",
             "style" : {
-				"navigationBarTitleText":"动态"
+				"navigationBarTitleText":"动态",
+				"app-plus":{
+					"titleNView": false
+				}
 			}
         }
         ,{

@@ -1,1 +1,1 @@
-<view class="uni-status-bar data-v-f3cf945a" style="{{'height:'+(statusBarHeight)+';'}}"><slot></slot></view>
+<view class="uni-status-bar data-v-09e39760" style="{{'height:'+(statusBarHeight=='0px'?'20px':statusBarHeight)+';'}}"><slot></slot></view>

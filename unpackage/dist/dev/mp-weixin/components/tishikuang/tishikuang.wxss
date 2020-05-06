@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-tip.data-v-75bb1d5a {
+.uni-tip.data-v-76a93cd0 {
   text-align: center;
   display: -webkit-box;
   display: -webkit-flex;
@@ -38,7 +38,7 @@
   background-color: #fff;
   border-radius: 10px;
 }
-.img.data-v-75bb1d5a {
+.img.data-v-76a93cd0 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -54,17 +54,17 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.img image.data-v-75bb1d5a {
+.img image.data-v-76a93cd0 {
     width: 60%;
 }
-.uni-tip-title.data-v-75bb1d5a {
+.uni-tip-title.data-v-76a93cd0 {
   margin-bottom: 10px;
   text-align: center;
   font-weight: bold;
   font-size: 16px;
   color: #F2B94A;
 }
-.uni-tip-content.data-v-75bb1d5a {
+.uni-tip-content.data-v-76a93cd0 {
   /* padding: 15px;
     */
   font-size: 14px;
@@ -83,7 +83,7 @@
   -webkit-align-items: center;
           align-items: center;
 }
-.uni-tip-group-button.data-v-75bb1d5a {
+.uni-tip-group-button.data-v-76a93cd0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -93,7 +93,7 @@
           flex-direction: row;
   margin-top: 20px;
 }
-.uni-tip-button.data-v-75bb1d5a {
+.uni-tip-button.data-v-76a93cd0 {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
           flex: 1;

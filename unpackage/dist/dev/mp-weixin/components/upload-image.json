@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "showComfirm": "/components/showComfirm/showComfirm",
+    "showModal": "/components/showModal/showModal",
     "show-comfirm": "/components/showComfirm/showComfirm",
     "show-modal": "/components/showModal/showModal"
   },

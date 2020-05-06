@@ -6,9 +6,11 @@
 
 <script>
 	import showModal from "@/components/showModal/showModal.vue";
+	import statusbar from '@/components/uni-status-bar/uni-status-bar.vue'
 	export default {
 		components:{
-			showModal
+			showModal,
+			statusbar
 		},
 		data() {
 			return {

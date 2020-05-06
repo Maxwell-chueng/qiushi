@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/index-comp":1,"components/showModal/showModal":1,"components/tabbar":1,"components/upload-image":1,"components/showComfirm/showComfirm":1,"components/tishikuang/tishikuang":1,"components/uni-nav-bar/uni-nav-bar":1,"components/showModal/uni-popup":1,"components/showComfirm/uni-popup":1,"components/tishikuang/uni-popup":1,"components/uni-icons/uni-icons":1,"components/uni-status-bar/uni-status-bar":1,"components/uni-transition/uni-transition":1};
+/******/ 		var cssChunks = {"components/index-comp":1,"components/showModal/showModal":1,"components/tabbar":1,"components/uni-nav-bar/uni-nav-bar":1,"components/upload-image":1,"components/showComfirm/showComfirm":1,"components/tishikuang/tishikuang":1,"components/showModal/uni-popup":1,"components/uni-icons/uni-icons":1,"components/uni-status-bar/uni-status-bar":1,"components/showComfirm/uni-popup":1,"components/tishikuang/uni-popup":1,"components/uni-transition/uni-transition":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/index-comp":"components/index-comp","components/showModal/showModal":"components/showModal/showModal","components/tabbar":"components/tabbar","components/upload-image":"components/upload-image","components/showComfirm/showComfirm":"components/showComfirm/showComfirm","components/tishikuang/tishikuang":"components/tishikuang/tishikuang","components/uni-nav-bar/uni-nav-bar":"components/uni-nav-bar/uni-nav-bar","components/showModal/uni-popup":"components/showModal/uni-popup","components/showComfirm/uni-popup":"components/showComfirm/uni-popup","components/tishikuang/uni-popup":"components/tishikuang/uni-popup","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar","components/uni-transition/uni-transition":"components/uni-transition/uni-transition"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/index-comp":"components/index-comp","components/showModal/showModal":"components/showModal/showModal","components/tabbar":"components/tabbar","components/uni-nav-bar/uni-nav-bar":"components/uni-nav-bar/uni-nav-bar","components/upload-image":"components/upload-image","components/showComfirm/showComfirm":"components/showComfirm/showComfirm","components/tishikuang/tishikuang":"components/tishikuang/tishikuang","components/showModal/uni-popup":"components/showModal/uni-popup","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar","components/showComfirm/uni-popup":"components/showComfirm/uni-popup","components/tishikuang/uni-popup":"components/tishikuang/uni-popup","components/uni-transition/uni-transition":"components/uni-transition/uni-transition"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
@@ -129,7 +129,6 @@
 /******/ 				linkTag.onerror = function(event) {
 /******/ 					var request = event && event.target && event.target.src || fullhref;
 /******/ 					var err = new Error("Loading CSS chunk " + chunkId + " failed.\n(" + request + ")");
-/******/ 					err.code = "CSS_CHUNK_LOAD_FAILED";
 /******/ 					err.request = request;
 /******/ 					delete installedCssChunks[chunkId]
 /******/ 					linkTag.parentNode.removeChild(linkTag)

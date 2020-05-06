@@ -46,8 +46,8 @@
 		},
 		onShow() {
 			let draft = uni.getStorageSync('draft');
-			draft.img.length>0? this.imageList = draft.img : this.imageList = [];
-			draft.word == ''? this.content = '' : this.content = draft.word;
+			draft.img&&draft.img.length>0? this.imageList = draft.img : this.imageList = [];
+			draft.word === '' || typeof draft.word === 'undefined' ? this.content = '' : this.content = draft.word ;
 		},
 		mounted(){
 			this.$refs.openAlert.show();
@@ -82,6 +82,8 @@
 			isComfirm(e){
 				if(e.status){
 					uni.setStorageSync('draft',{img:this.imageList,word:this.content});
+				}else{
+					uni.clearStorageSync('draft');
 				}
 				uni.navigateBack({
 					delta:1
