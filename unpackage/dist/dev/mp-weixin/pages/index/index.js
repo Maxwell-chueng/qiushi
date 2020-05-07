@@ -107,8 +107,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
+  "uni-nav-bar": () =>
+    __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 59)),
   showModal: () =>
-    __webpack_require__.e(/*! import() | components/showModal/showModal */ "components/showModal/showModal").then(__webpack_require__.bind(null, /*! @/components/showModal/showModal.vue */ 55))
+    __webpack_require__.e(/*! import() | components/showModal/showModal */ "components/showModal/showModal").then(__webpack_require__.bind(null, /*! @/components/showModal/showModal.vue */ 66))
 }
 var render = function() {
   var _vm = this
@@ -145,7 +147,26 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var indexComp = function indexComp() {return __webpack_require__.e(/*! import() | components/index-comp */ "components/index-comp").then(__webpack_require__.bind(null, /*! ../../components/index-comp.vue */ 62));};var tabbar = function tabbar() {return __webpack_require__.e(/*! import() | components/tabbar */ "components/tabbar").then(__webpack_require__.bind(null, /*! ../../components/tabbar.vue */ 69));};var showModal = function showModal() {return __webpack_require__.e(/*! import() | components/showModal/showModal */ "components/showModal/showModal").then(__webpack_require__.bind(null, /*! @/components/showModal/showModal.vue */ 55));};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var indexComp = function indexComp() {return __webpack_require__.e(/*! import() | components/index-comp */ "components/index-comp").then(__webpack_require__.bind(null, /*! ../../components/index-comp.vue */ 73));};var tabbar = function tabbar() {return __webpack_require__.e(/*! import() | components/tabbar */ "components/tabbar").then(__webpack_require__.bind(null, /*! ../../components/tabbar.vue */ 80));};var showModal = function showModal() {return __webpack_require__.e(/*! import() | components/showModal/showModal */ "components/showModal/showModal").then(__webpack_require__.bind(null, /*! @/components/showModal/showModal.vue */ 66));};var uniNavBar = function uniNavBar() {return __webpack_require__.e(/*! import() | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then(__webpack_require__.bind(null, /*! @/components/uni-nav-bar/uni-nav-bar.vue */ 59));};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -183,7 +204,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     indexComp: indexComp,
     tabbar: tabbar,
-    showModal: showModal },
+    showModal: showModal,
+    uniNavBar: uniNavBar },
 
   data: function data() {
     return {
@@ -414,18 +436,6 @@ __webpack_require__.r(__webpack_exports__);
   onLoad: function onLoad() {
     this.getIndexCompHeight();
   },
-  onNavigationBarButtonTap: function onNavigationBarButtonTap(e) {
-    if (e.index === 1) {
-      uni.navigateTo({
-        url: '/pages/fabu/fabu' });
-
-    }
-  },
-  onNavigationBarSearchInputClicked: function onNavigationBarSearchInputClicked() {
-    uni.navigateTo({
-      url: '/pages/search/search' });
-
-  },
   watch: {
     // 监听currentIndex,索引大于3式,动态设置tabbar横向滚动条的滚动距离
     currentIndex: function currentIndex(i) {
@@ -437,6 +447,19 @@ __webpack_require__.r(__webpack_exports__);
     } },
 
   methods: {
+    handleNavigate: function handleNavigate(type) {
+      if (type == 'left') {
+        console.log('签到');
+      } else if (type == 'right') {
+        uni.navigateTo({
+          url: '/pages/fabu/fabu' });
+
+      } else if (type == 'input') {
+        uni.navigateTo({
+          url: '/pages/search/search' });
+
+      }
+    },
     deleteArtist: function deleteArtist(e) {var _this = this;var
       index = e.index;
       this.$refs.notice.showMsg({ msg: '删除成功', time: 1000 }).then(function () {

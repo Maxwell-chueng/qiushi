@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "showModal": "/components/showModal/showModal",
-    "show-modal": "/components/showModal/showModal"
+    "show-modal": "/components/showModal/showModal",
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar"
   }
 }

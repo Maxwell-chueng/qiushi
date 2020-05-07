@@ -34,25 +34,7 @@
             "path" : "pages/search/search",
             "style" : {
 				"app-plus":{
-					"titleNView":{
-					    "autoBackButton":"false",
-						"searchInput":{
-							"align":"left",
-							"backgroundColor":"#F7F7F7",
-							"borderRadius":"4px",
-							"placeholder":"点击搜索",
-							"placeholderColor":"#cccccc",
-							"disabled":false
-						},
-						"buttons":[{
-							"color":"#000000",
-							"colorPressed":"#BBBBBB",
-							"fontSize":"14px",
-							"float":"right",
-							"fontSrc":"/static/style/iconfont.ttf",
-							"text":"取消"
-						}]
-					}
+					"titleNView": false
 				}
 			}
         }
